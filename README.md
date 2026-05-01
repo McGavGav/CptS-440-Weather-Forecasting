@@ -1,18 +1,35 @@
 **Project**
 
 - **Description:** Weather forecasting experiments using 2002 GSOD observations. This repository builds a Static Bayesian Network (BN), a 2-time-slice Dynamic Bayesian Network (DBN), and a Latent-state DBN (HMM+DBN) to forecast binary weather events and discretized atmospheric variables.
+- Main notebook: [notebooks/BayesianNetwork.ipynb](notebooks/BayesianNetwork.ipynb)
 
 **Requirements**
 
 - **Python:** 3.8+ recommended. Create a venv before installing packages.
 - **Key packages:** pandas, numpy, scikit-learn, pgmpy, hmmlearn, seaborn, matplotlib
 
-Install in a fresh venv (Windows ex):
+**Local Setup**
 
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/CptS-440-Weather-Forecasting.git
+cd CptS-440-Weather-Forecasting
 python -m venv venv
+
+# Windows
 venv\Scripts\activate
-pip install pandas numpy scikit-learn pgmpy hmmlearn seaborn matplotlib
-pip install jupyterlab
+# Mac/Linux
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+Then run the notebook:
+
+```bash
+jupyter lab notebooks/BayesianNetwork.ipynb
+```
 
 **Data**
 
@@ -39,13 +56,13 @@ pip install jupyterlab
 	- set `user_evidence` (model dependent);
 	- set `query_vars` to request posterior distributions for chosen variables.
 
-- Usage notes:
+- Usage:
 	- Run the model building cells above first so the notebook kernel has the trained inference objects loaded.
 	- Typical evidence keys:
 		- Static BN: `SLP_D`, `TEMP_D`, `WIND_D`, `DEWP_D`, `PRCP_D` (same-day observations)
 		- DBN / Latent DBN: same keys with `_prev` suffix (e.g. `TEMP_D_prev`) plus binary `_prev` flags like `RAIN_prev`, `SNOW_prev`, `FOG_prev`, `THUNDER_prev`.
 
-**Testing & Evaluation**
+**Testing**
 
 - The notebook prints classification reports, confusion matrices, accuracy for discretized atmospheric targets, Brier score and Brier skill scores, and a macro-F1 comparison pivot for all models.
 - Key evaluation cells and variables:
