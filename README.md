@@ -16,8 +16,13 @@ pip install jupyterlab
 
 **Data**
 
-- Place the cleaned GSOD CSV at: [data/processed/gsod_2002.csv](data/processed/gsod_2002.csv)
-- For graders, this csv file will be included in the folder on google. It is too large for git upload.
+**NOAA Global Surface Summary of Day (GSOD)**
+
+- Source: NOAA FTP — `ftp.ncdc.noaa.gov/pub/data/gsod/`
+- Reference: [Kaggle NOAA GSOD Dataset](https://www.kaggle.com/datasets/noaa/gsod)
+- Year used: **2002** 
+- Key fields: `TEMP`, `DEWP`, `SLP`, `WDSP`, `PRCP`, and fog / rain / snow / thunder ina csv file
+- **For graders, this csv file will be included in the folder on google. It is too large for git upload.**
 
 **Notebook: usage**
 
